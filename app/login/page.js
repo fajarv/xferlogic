@@ -3,8 +3,6 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-import { signIn } from "next-auth/react";
-
 export default function LoginPage() {
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6">
@@ -13,24 +11,18 @@ export default function LoginPage() {
         Verified community for ETRM, Trading & Risk professionals.
       </p>
 
+      {/* TEMPORARY BUTTONS – NOT USING signIn() YET */}
       <button
-        onClick={() => signIn("linkedin")}
-        className="w-full max-w-sm py-3 mb-4 bg-[#0A66C2] rounded-lg font-semibold text-white hover:bg-[#084a8b] transition"
+        className="w-full max-w-sm py-3 bg-[#0A66C2] rounded-lg font-semibold text-white hover:bg-[#084a8b] transition"
       >
-        Sign in with LinkedIn
+        LinkedIn Login Coming Soon
       </button>
 
       <button
-        onClick={() => signIn("email")}
-        className="w-full max-w-sm py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition"
+        className="w-full max-w-sm py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition mt-4"
       >
-        Sign in with Email
+        Email Login Coming Soon
       </button>
-
-      <p className="mt-10 text-xs opacity-40 text-center max-w-sm">
-        By signing in, you agree to provide accurate, verifiable experience
-        information and understand that community membership is gated by peer validation.
-      </p>
     </div>
   );
 }
