@@ -1,4 +1,8 @@
 "use client";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
