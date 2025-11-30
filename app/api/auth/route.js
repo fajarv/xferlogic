@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import LinkedInProvider from "next-auth/providers/linkedin";
 import EmailProvider from "next-auth/providers/email";
 
-export const authOptions = {
+const handler = NextAuth({
   providers: [
     LinkedInProvider({
       clientId: process.env.LINKEDIN_ID,
@@ -13,7 +13,9 @@ export const authOptions = {
       from: process.env.EMAIL_FROM,
     }),
   ],
-};
+  pages: {
+    signIn: "/login",
+  },
+});
 
-const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
