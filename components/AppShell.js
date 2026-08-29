@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
+import BrandMark from "./BrandMark";
 
 export default function AppShell({ children }) {
   const [user, setUser] = useState(null);
@@ -22,10 +23,7 @@ export default function AppShell({ children }) {
     <div className="min-h-screen bg-[#02070d] text-white">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#02070d]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
-          <Link href="/" className="flex items-center gap-3 font-black tracking-[0.15em]">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-cyan-300 via-blue-500 to-slate-950 text-sm shadow-lg shadow-blue-500/20">XL</span>
-            <span>XFERLOGIC <span className="text-cyan-300">XL100</span></span>
-          </Link>
+          <BrandMark compact />
           <nav className="hidden items-center gap-5 text-sm text-slate-300 md:flex">
             <Link href="/dashboard">Dashboard</Link>
             <Link href="/talent">Talent</Link>
