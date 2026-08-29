@@ -1,28 +1,51 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+import { useState } from 'react';
+import Link from 'next/link';
+import { supabase } from '../../lib/supabase';
 
 export default function LoginPage() {
+  const [mode,setMode] = useState('signin');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  const [name,setName] = useState('');
+  const [message,setMessage] = useState('');
+  const [busy,setBusy] = useState(false);
+
+  async function submit(e){
+    e.preventDefault(); setBusy(true); setMessage('');
+    try {
+      if(mode === 'signup'){
+        const { error } = await supabase.auth.signUp({ email, password, options:{ data:{ full_name:name } } });
+        if(error) throw error;
+        setMessage('Account created. Check your email if confirmation is required, then sign in.');
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        if(error) throw error;
+        window.location.href='/dashboard';
+      }
+    } catch(err){ setMessage(err.message || 'Unable to continue.'); }
+    finally { setBusy(false); }
+  }
+
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6">
-      <h1 className="text-4xl font-semibold mb-4">XferLogic</h1>
-      <p className="text-lg opacity-70 mb-10 text-center max-w-md">
-        Verified community for ETRM, Trading & Risk professionals.
-      </p>
-
-      {/* TEMPORARY BUTTONS – NOT USING signIn() YET */}
-      <button
-        className="w-full max-w-sm py-3 bg-[#0A66C2] rounded-lg font-semibold text-white hover:bg-[#084a8b] transition"
-      >
-        LinkedIn Login Coming Soon
-      </button>
-
-      <button
-        className="w-full max-w-sm py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition mt-4"
-      >
-        Email Login Coming Soon
-      </button>
-    </div>
+    <main className="grid min-h-screen place-items-center px-5 py-12">
+      <div className="w-full max-w-md">
+        <Link href="/" className="text-sm text-cyan-300">← XL100</Link>
+        <div className="xl-card mt-5 p-7">
+          <div className="xl-kicker">Professional membership</div>
+          <h1 className="mt-3 text-3xl font-black">{mode==='signin'?'Welcome back':'Create your XL100 profile'}</h1>
+          <p className="mt-2 text-sm leading-6 text-slate-400">Individual membership is open to ETRM professionals across vendors, commodities, roles and employers.</p>
+          <form onSubmit={submit} className="mt-7 space-y-4">
+            {mode==='signup' && <label>Full name<input value={name} onChange={e=>setName(e.target.value)} required /></label>}
+            <label>Email<input type="email" value={email} onChange={e=>setEmail(e.target.value)} required /></label>
+            <label>Password<input type="password" minLength={8} value={password} onChange={e=>setPassword(e.target.value)} required /></label>
+            <button disabled={busy} className="w-full rounded-xl bg-cyan-400 px-4 py-3 font-bold text-slate-950 disabled:opacity-60">{busy?'Working…':mode==='signin'?'Sign in':'Create account'}</button>
+          </form>
+          {message && <div className="mt-4 rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-3 text-sm text-slate-300">{message}</div>}
+          <button onClick={()=>{setMode(mode==='signin'?'signup':'signin');setMessage('')}} className="mt-5 text-sm text-cyan-300">{mode==='signin'?'New to XL100? Create an account':'Already have an account? Sign in'}</button>
+        </div>
+      </div>
+    </main>
   );
 }
