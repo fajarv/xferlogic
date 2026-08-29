@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { background:#02070d; }
+body { margin:0; min-height:100vh; background:radial-gradient(circle at 80% 0, rgba(19,116,200,.16), transparent 32rem), #02070d; color:#f8fbff; }
+* { box-sizing:border-box; }
+a { text-decoration:none; }
+input, textarea, select { color:#fff; background:#07131f; border:1px solid rgba(255,255,255,.12); border-radius:.75rem; padding:.8rem .9rem; width:100%; }
+input:focus, textarea:focus, select:focus { outline:none; border-color:#38bdf8; box-shadow:0 0 0 3px rgba(56,189,248,.1); }
+label { display:grid; gap:.45rem; font-size:.82rem; color:#a9bac7; }
+.xl-card { border:1px solid rgba(125,211,252,.14); background:linear-gradient(145deg,rgba(8,24,37,.96),rgba(4,13,20,.96)); border-radius:1.25rem; box-shadow:0 28px 80px rgba(0,0,0,.22); }
+.xl-kicker { color:#67e8f9; font-size:.72rem; font-weight:900; letter-spacing:.18em; text-transform:uppercase; }
