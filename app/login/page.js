@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { supabase } from '../../lib/supabase';
+import BrandMark from '../../components/BrandMark';
 
 export default function LoginPage() {
   const [mode,setMode] = useState('signin');
@@ -31,8 +31,8 @@ export default function LoginPage() {
   return (
     <main className="grid min-h-screen place-items-center px-5 py-12">
       <div className="w-full max-w-md">
-        <Link href="/" className="text-sm text-cyan-300">← XL100</Link>
-        <div className="xl-card mt-5 p-7">
+        <div className="flex justify-center"><BrandMark /></div>
+        <div className="xl-card mt-7 p-7">
           <div className="xl-kicker">Professional membership</div>
           <h1 className="mt-3 text-3xl font-black">{mode==='signin'?'Welcome back':'Create your XL100 profile'}</h1>
           <p className="mt-2 text-sm leading-6 text-slate-400">Individual membership is open to ETRM professionals across vendors, commodities, roles and employers.</p>
