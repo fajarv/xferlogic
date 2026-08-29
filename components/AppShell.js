@@ -26,8 +26,9 @@ export default function AppShell({ children }) {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-cyan-300 via-blue-500 to-slate-950 text-sm shadow-lg shadow-blue-500/20">XL</span>
             <span>XFERLOGIC <span className="text-cyan-300">XL100</span></span>
           </Link>
-          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <nav className="hidden items-center gap-5 text-sm text-slate-300 md:flex">
             <Link href="/dashboard">Dashboard</Link>
+            <Link href="/talent">Talent</Link>
             <Link href="/passport">Experience Passport</Link>
             <Link href="/company/apply">Company XL100</Link>
             <Link href="/admin">Admin</Link>
