@@ -49,6 +49,49 @@ Exact claimed license count is private; public profile only needs to expose the 
 
 One company = one roadmap vote per roadmap item. Tier gives prestige / representation capacity, not extra voting power.
 
+## Founder visibility / conflict-of-interest guardrails
+
+The founder expects to remain somewhat behind the scenes because of their current P66 role and career responsibilities. XferLogic / XL100 should therefore be designed so the platform does not depend on the founder being the public face, spokesperson, procurement influencer, or visible commercial intermediary.
+
+Future product, marketing, monetization, outreach, and governance decisions should be actively challenged whenever they could create an actual conflict of interest or even a reasonable appearance of one. Particular caution is required around:
+
+- using employer title, authority, internal relationships, procurement influence, or nonpublic information to benefit XferLogic / XL100;
+- soliciting or negotiating paid vendor participation with vendors that may also do business with the founder's employer;
+- presenting employer views, priorities, usage, roadmap needs, spend, contracts, vendor performance, internal architecture, trading information, or procurement information as XL100 data;
+- accepting compensation, gifts, preferred treatment, advisory benefits, or other personal value from vendors where the founder could influence employer decisions;
+- allowing any vendor to infer that sponsorship, advertising, or participation in XL100 improves its standing with the founder's employer;
+- using employer time, systems, confidential data, or company-owned materials for XferLogic work;
+- positioning XL100 rankings, recommendations, or roadmap results as representing the founder's employer unless formally authorized.
+
+When a proposed activity touches one of these areas, stop and flag the concern before implementation. Employer ethics / outside-business / conflict-of-interest policies and, when appropriate, qualified legal or compliance advice should govern the final decision.
+
+## Community and monetization principles
+
+Individual participation in the LinkedIn-style ETRM professional network is intended to remain free.
+
+Commercial monetization should come from optional, clearly labeled, professional vendor participation rather than charging members for basic networking access. Acceptable models include:
+
+- clearly labeled vendor / sponsor presence;
+- vendor product directory pages;
+- paid placement for specific ETRM products or offerings, without pay-to-rank treatment;
+- subscription spaces where vendors can publish new product capabilities, releases, technical material, roadmap updates, webinars, or other ETRM offerings;
+- sponsored content or events that are visibly identified as sponsored.
+
+The platform should not directly sell vendor products or act as a pushy sales channel. Vendor participation must not buy favorable expert opinions, suppress criticism, alter search rankings unfairly, or influence XL100 voting results.
+
+Experts in the network should remain free to provide direct professional feedback on vendor products and published offerings. Moderation should enforce professionalism, evidence, confidentiality, and anti-abuse standards without protecting vendors from legitimate criticism.
+
+XL100 enterprise members retain an independent roadmap-influence role. They should be able to identify and rank the capabilities, operational problems, architecture needs, integrations, controls, workflows, and product improvements most important to them across different ETRM products.
+
+Core roadmap-governance principles remain:
+
+- one qualifying company = one vote per roadmap item;
+- membership tier does not buy more votes;
+- vendors cannot buy votes, rankings, favorable feedback, or moderation outcomes;
+- sponsorship and roadmap influence remain structurally separate;
+- no sharing of confidential pricing, contract terms, procurement strategy, competitive trading data, nonpublic positions, or other protected information;
+- roadmap discussion focuses on product capabilities, operational experience, architecture, usability, controls, integrations, and future needs.
+
 ## Supabase backend
 
 Project name: `XL100`
@@ -214,6 +257,7 @@ Purpose:
 9. Add ETRM Q&A.
 10. Add moderator-approved Knowledge Library uploads.
 11. Add Vendor Councils and Roadmap Pulse later.
+12. Before adding paid vendor features, design a formal sponsor / vendor-partner policy that separates commercial placement from expert feedback, roadmap voting, moderation, and employer relationships.
 
 ## Later roadmap
 
