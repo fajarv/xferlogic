@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
 import BrandMark from '../../components/BrandMark';
 
@@ -12,13 +12,29 @@ export default function LoginPage() {
   const [message,setMessage] = useState('');
   const [busy,setBusy] = useState(false);
 
+  useEffect(() => {
+    // Supabase confirmation links return the authenticated session in the URL.
+    // Once the client has consumed it, move the user into XL100.
+    supabase.auth.getSession().then(({ data }) => {
+      if (data?.session) window.location.replace('/dashboard');
+    });
+  }, []);
+
   async function submit(e){
     e.preventDefault(); setBusy(true); setMessage('');
     try {
       if(mode === 'signup'){
-        const { error } = await supabase.auth.signUp({ email, password, options:{ data:{ full_name:name } } });
+        const emailRedirectTo = `${window.location.origin}/login`;
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options:{
+            data:{ full_name:name },
+            emailRedirectTo,
+          },
+        });
         if(error) throw error;
-        setMessage('Account created. Check your email if confirmation is required, then sign in.');
+        setMessage('Account created. Check your email to confirm it, then XL100 will bring you back here and sign you in.');
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if(error) throw error;
