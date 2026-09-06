@@ -28,7 +28,7 @@ export default function AppShell({ children }) {
             <Link href="/dashboard">Dashboard</Link>
             <Link href="/talent">Talent</Link>
             <Link href="/passport">Experience Passport</Link>
-            <Link href="/company/apply">Company XL100</Link>
+            <Link href="/company/manage">Company XL100</Link>
             <Link href="/admin">Admin</Link>
           </nav>
           {user ? (
