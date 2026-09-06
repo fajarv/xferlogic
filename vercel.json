@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/xl100",
+      "destination": "https://xferlogic-v8-preview-git-feature-xl100-phase1-fajarv-7996.vercel.app",
+      "permanent": false
+    },
+    {
+      "source": "/xl100/:path*",
+      "destination": "https://xferlogic-v8-preview-git-feature-xl100-phase1-fajarv-7996.vercel.app/:path*",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/privacy", "destination": "/privacy.html" }
