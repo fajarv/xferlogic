@@ -29,7 +29,7 @@ export default function TalentDirectoryPage() {
       }
 
       const [profilesResult, passportsResult, expertiseResult, productsResult] = await Promise.all([
-        supabase.from("profiles").select("id,display_name,title,location,bio,availability_status"),
+        supabase.from("profiles").select("id,display_name,title,location,bio,availability_status,linkedin_url"),
         supabase.from("experience_passports").select("user_id,years_etrm,summary,commodities,lifecycle_areas,delivery_roles,operating_regions"),
         supabase.from("experience_products").select("user_id,product_id,years_experience,proficiency,hands_on"),
         supabase.from("etrm_products").select("id,vendor_name,product_name").eq("active", true),
@@ -170,7 +170,10 @@ export default function TalentDirectoryPage() {
                 <div className="mt-4 flex flex-wrap gap-2">
                   {chips.map((chip, index) => <span key={`${chip}-${index}`} className="rounded-full border border-white/10 bg-white/[.025] px-2.5 py-1 text-xs text-slate-300">{chip}</span>)}
                 </div>
-                <div className="mt-5 border-t border-white/10 pt-4 text-xs text-cyan-300">{String(person.availability_status || "not_specified").replaceAll("_", " ")}</div>
+                <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4 text-xs">
+                  <span className="text-cyan-300">{String(person.availability_status || "not_specified").replaceAll("_", " ")}</span>
+                  {person.linkedin_url && <a href={person.linkedin_url} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-300 hover:text-cyan-300">LinkedIn ↗</a>}
+                </div>
               </article>
             );
           })}
